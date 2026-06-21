@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Corporate Portal Login</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Manrope -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom utilities if needed */
+        .glass-effect {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen flex flex-col antialiased">
+<!-- Split Screen Container -->
+<div class="flex flex-col lg:flex-row min-h-screen w-full overflow-hidden">
+<!-- Left Side: Visual / Brand Image -->
+<!-- Hidden on small screens, takes up 45% of width on large screens -->
+<div class="hidden lg:flex lg:w-[45%] relative bg-background-dark flex-col justify-between p-12">
+<!-- Background Image -->
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center opacity-60 mix-blend-overlay" data-alt="Modern corporate office architecture with glass windows" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCXc_UtLSCWqN_1-koTnuuHlgsmZH_RTPuDVVLg9PrOqDnLA_5NmPVPBYXx_SGsoc1sdzH60K2sQzbxy7U5DkC0c0J7DkruLmD5tB42NTAOTFRmwPx0wwooT4CFKor13X2GwPB2gcv2F9ttj5MIChwlkPjOmzbdoixXPdBotb44EX7kk-3oYTz6RtjBs8Bss6HQL3mALFLG6Qn_q3jUsgNIj8hutVdjWbcsm0trg3IqUsb9fwtdjzyekQbEnyhG8vU6cGYLQF5DOf8');">
+</div>
+<!-- Gradient Overlay for Brand Color Harmony -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary/90 to-[#0a1f4d]/90 mix-blend-multiply"></div>
+</div>
+<!-- Content Overlay -->
+<div class="relative z-10 flex flex-col h-full justify-between">
+<!-- Logo Area -->
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center backdrop-blur-sm border border-white/20">
+<span class="material-symbols-outlined text-white text-2xl">business_center</span>
+</div>
+<span class="text-white font-bold text-xl tracking-wide">NexusCorp</span>
+</div>
+<!-- Featured Card/Quote -->
+<div class="glass-effect rounded-2xl p-8 bg-white/10 border border-white/10 shadow-2xl backdrop-blur-md max-w-md mt-auto mb-10">
+<div class="flex flex-col gap-4">
+<span class="material-symbols-outlined text-white/80 text-4xl">security</span>
+<div>
+<h3 class="text-white text-2xl font-bold mb-2">Secure Enterprise Access</h3>
+<p class="text-white/80 text-base leading-relaxed">
+                                Welcome to the unified ERP portal. Manage your workflows, access secure data, and collaborate with your team in one centralized hub.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Footer Copyright -->
+<p class="text-white/40 text-sm">© 2024 NexusCorp Enterprise Systems. All rights reserved.</p>
+</div>
+</div>
+<!-- Right Side: Login Form -->
+<div class="flex-1 flex flex-col justify-center items-center p-6 sm:p-12 lg:p-24 bg-white dark:bg-background-dark w-full">
+<div class="w-full max-w-[440px] flex flex-col">
+<!-- Mobile Logo (Visible only on small screens) -->
+<div class="flex lg:hidden items-center gap-2 mb-8 self-center">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-2xl">business_center</span>
+</div>
+<span class="text-slate-900 dark:text-white font-bold text-xl tracking-wide">NexusCorp</span>
+</div>
+<!-- Header Section -->
+<div class="mb-10 text-center lg:text-left">
+<h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-3">Welcome Back</h1>
+<p class="text-slate-500 dark:text-slate-400 text-lg">Please enter your credentials to access the ERP system.</p>
+</div>
+<!-- Form -->
+<form action="/login" method="POST" class="flex flex-col gap-6">
+
+<!-- username Field -->
+<div class="space-y-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300" for="username">Work username</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+
+</div>
+<input class="w-full h-14 pl-12 pr-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-background-light dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none font-medium" id="username" name="username"  placeholder="Username" required="" type="text"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300" for="password">Password</label>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400 group-focus-within:text-primary transition-colors">lock</span>
+</div>
+<input class="w-full h-14 pl-12 pr-12 rounded-xl border border-slate-200 dark:border-slate-700 bg-background-light dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none font-medium" id="password" name="password" autocomplete="current-password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Additional Options -->
+<div class="flex items-center justify-between mt-1">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="w-4 h-4 rounded border-slate-300 text-primary focus:ring-primary/20 cursor-pointer" type="checkbox"/>
+<span class="text-sm font-medium text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-slate-200 transition-colors">Remember me</span>
+</label>
+<a class="text-sm font-semibold text-primary hover:text-blue-700 dark:hover:text-blue-400 transition-colors" href="#">Forgot Password?</a>
+</div>
+<!-- Submit Button -->
+<button class="w-full h-14 mt-4 bg-primary hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all active:scale-[0.99] flex items-center justify-center gap-2" type="submit">
+<span>Sign In</span>
+<span class="material-symbols-outlined text-xl">login</span>
+</button>
+</form>
+<!-- Footer / Help -->
+<div class="mt-10 pt-6 border-t border-slate-100 dark:border-slate-800 text-center lg:text-left flex flex-col sm:flex-row items-center justify-between gap-4">
+<p class="text-slate-500 dark:text-slate-400 text-sm">Having trouble logging in?</p>
+<a class="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">contact_support</span>
+                        Contact IT Support
+                    </a>
+</div>
+</div>
+</div>
+</div>
+<script>
+document.querySelectorAll('button[type="button"]').forEach(btn => {
+    btn.addEventListener("click", () => {
+        const input = document.getElementById("password");
+        input.type = input.type === "password" ? "text" : "password";
+    });
+});
+</script>
+
+</body></html>

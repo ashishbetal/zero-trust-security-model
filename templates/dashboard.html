@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="refresh" content="5">
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Employee Productivity Dashboard</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1B365D","primary-light": "#eef4ff",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen font-display text-slate-900 dark:text-slate-100 antialiased overflow-hidden">
+<div class="flex h-screen w-full overflow-hidden">
+<aside class="flex w-72 flex-col bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 shrink-0 transition-all duration-300">
+<div class="p-6 border-b border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-12 shadow-sm ring-2 ring-white dark:ring-slate-800" data-alt="Profile picture of a smiling man" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCUDDZ8I32DQMz0P6b2gom6fqMczQyb3U2nHk-e9gYhf8cCq-gTB3xQZy5t-xQmlL-B5bhIDz8gCda1aAF_CeRk-JZZy5lP8flz_pGvsI33fuuzGrrrbvu-cdQ6pSXrsGoVEVJ9cQWo5oln5bPFG4orxmyxDjvj_uCxocDzOzO0Gop9kwqLzHFPX8RKr6qtX1EvwbitxlffV8R4lEPcp9r8ACsboJ3Q3s2njr20e_pfqBc14oIUNbHy58PA_m5CdC4FYdvCke-km-Y");'></div>
+<div class="flex flex-col overflow-hidden">
+<h1 class="text-slate-900 dark:text-white text-base font-bold truncate">Alex M.</h1>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium truncate">Product Manager</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-1 p-4 overflow-y-auto">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary dark:text-blue-400 group transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px] font-medium">dashboard</span>
+<span class="text-sm font-semibold">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white group transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">person</span>
+<span class="text-sm font-medium">Profile</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white group transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">work</span>
+<span class="text-sm font-medium">Active Cases</span>
+<span class="ml-auto bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 py-0.5 px-2 rounded-full text-[10px] font-bold">12</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white group transition-colors"
+   href="/secure">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+<span class="text-sm font-medium">Secure Resources</span>
+</a>
+
+<div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+<p class="px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Workspace</p>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white group transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">folder_shared</span>
+<span class="text-sm font-medium">Shared Drive</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white group transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+<span class="text-sm font-medium">Analytics</span>
+</a>
+</div>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<button> 
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<a href="/logout"
+   class="flex w-full items-center justify-center gap-2 rounded-lg py-2.5 bg-white border border-slate-200 hover:bg-slate-50 dark:bg-slate-800 dark:border-slate-700 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-sm font-bold transition-colors shadow-sm">
+    <span class="material-symbols-outlined text-[18px]">logout</span>
+    <span>Logout</span>
+</a>
+</div>
+
+
+</button>
+</div>
+</aside>
+<main class="flex-1 flex flex-col min-w-0 overflow-y-auto bg-background-light dark:bg-background-dark">
+<header class="sticky top-0 z-20 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md px-8 py-6 border-b border-transparent">
+<div class="flex justify-between items-end">
+<div>
+<h2 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Welcome back, Alex</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Here is your daily briefing for <span class="font-semibold text-slate-700 dark:text-slate-300">Tuesday, October 24</span>.</p>
+</div>
+<div class="hidden sm:flex items-center gap-3">
+<button class="p-2 rounded-full text-slate-400 hover:text-primary hover:bg-blue-50 dark:hover:bg-slate-800 transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border-2 border-background-light dark:border-background-dark"></span>
+</button>
+<button class="flex items-center gap-2 bg-primary hover:bg-blue-900 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors shadow-md shadow-blue-900/10">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>New Request</span>
+</button>
+</div>
+</div>
+</header>
+<div class="p-8 space-y-6 max-w-[1600px] mx-auto w-full">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 h-full">
+<div class="lg:col-span-1 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 flex flex-col h-full">
+<div class="px-6 py-5 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<h3 class="font-bold text-slate-900 dark:text-white">My Tasks</h3>
+<span class="bg-red-100 text-red-600 text-xs font-bold px-2 py-0.5 rounded-full">2 Urgent</span>
+</div>
+<div class="flex gap-1">
+<button class="p-1 text-slate-400 hover:text-primary rounded hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+</button>
+<button class="p-1 text-slate-400 hover:text-primary rounded hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-[20px]">more_horiz</span>
+</button>
+</div>
+</div>
+<div class="p-2 flex-1 overflow-y-auto">
+<label class="group flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer transition-colors">
+<div class="relative flex items-center">
+<input class="peer h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 bg-white checked:border-primary checked:bg-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all" type="checkbox"/>
+<span class="material-symbols-outlined absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[16px] text-white opacity-0 peer-checked:opacity-100 pointer-events-none">check</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-medium text-slate-900 dark:text-white group-hover:text-primary transition-colors">Review Q4 Budget</p>
+<p class="text-xs text-red-500 font-medium mt-0.5">Due Today</p>
+</div>
+<span class="bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-semibold px-2 py-1 rounded">Finance</span>
+</label>
+<label class="group flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer transition-colors">
+<div class="relative flex items-center">
+<input class="peer h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 bg-white checked:border-primary checked:bg-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all" type="checkbox"/>
+<span class="material-symbols-outlined absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[16px] text-white opacity-0 peer-checked:opacity-100 pointer-events-none">check</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-medium text-slate-900 dark:text-white group-hover:text-primary transition-colors">Submit Expense Report</p>
+<p class="text-xs text-orange-500 font-medium mt-0.5">High Priority</p>
+</div>
+<span class="bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-semibold px-2 py-1 rounded">Admin</span>
+</label>
+<label class="group flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer transition-colors">
+<div class="relative flex items-center">
+<input class="peer h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 bg-white checked:border-primary checked:bg-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all" type="checkbox"/>
+<span class="material-symbols-outlined absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[16px] text-white opacity-0 peer-checked:opacity-100 pointer-events-none">check</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-medium text-slate-900 dark:text-white group-hover:text-primary transition-colors">Client Onboarding - TechCorp</p>
+<p class="text-xs text-slate-500 font-medium mt-0.5">Due Oct 26</p>
+</div>
+<span class="bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-semibold px-2 py-1 rounded">Sales</span>
+</label>
+<label class="group flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer transition-colors opacity-60">
+<div class="relative flex items-center">
+<input checked="" class="peer h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 bg-white checked:border-primary checked:bg-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all" type="checkbox"/>
+<span class="material-symbols-outlined absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[16px] text-white opacity-0 peer-checked:opacity-100 pointer-events-none">check</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-medium text-slate-900 dark:text-white line-through">Weekly Sync Notes</p>
+<p class="text-xs text-slate-400 font-medium mt-0.5">Completed</p>
+</div>
+</label>
+</div>
+<div class="p-3 border-t border-slate-100 dark:border-slate-800 mt-auto">
+<button class="w-full py-2 text-sm text-primary font-bold hover:bg-primary/5 rounded-lg transition-colors">Add New Task</button>
+</div>
+</div>
+<div class="lg:col-span-1 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 flex flex-col h-full">
+<div class="px-6 py-5 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
+<h3 class="font-bold text-slate-900 dark:text-white">Upcoming Meetings</h3>
+<button class="text-primary text-xs font-bold hover:underline">View Calendar</button>
+</div>
+<div class="p-4 flex-1 overflow-y-auto">
+<div class="relative pl-4 border-l border-slate-200 dark:border-slate-700 space-y-6 ml-2">
+<div class="relative">
+<span class="absolute -left-[21px] top-1 h-2.5 w-2.5 rounded-full bg-primary ring-4 ring-white dark:ring-slate-900"></span>
+<div class="flex flex-col gap-1">
+<p class="text-xs font-semibold text-primary">10:00 AM - 11:00 AM</p>
+<h4 class="text-sm font-bold text-slate-900 dark:text-white">Q4 Budget Review</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400">Room 304 • Hybrid</p>
+<div class="flex -space-x-2 mt-2">
+<img alt="Colleague face" class="inline-block h-6 w-6 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="Profile photo of team member" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoiBXjwE583yKaym_-9pBa0yU_uSkqP9OQHOwTcog7MT53yqO4UjuZRaZhtkjaEK8t26sjZz8uJG97kDA4VXQBFu8b4TKn4O8sgJWzdXdgAZhhVLrcw4lqhwT6v4Ei5WW6jh7Gmv9Ul4D5yu8N4x2WIVhTTRoJeerjtepl1-8r7U9Ql8mcQyJjaYIaCWDntHN00qysSIGbYldOJ7upj-j_WZ33ny1W4tdSZ00pfV0iLDUFytjDYAWB-_I2sX5lBfEqWWIHMCsTdbM"/>
+<img alt="Colleague face" class="inline-block h-6 w-6 rounded-full ring-2 ring-white dark:ring-slate-900" data-alt="Profile photo of team member" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXoGJYg6vZxjljUS8U0hRRNCb8MLritSuThZVSL_Qzq8tc7R3pEJTBN7ntN11ktV0OJmEfkvHVafxv-NJCrLSCv2EwQF2xzHXUycg_00w5z2UvJqsfuWaBZjr1kSgRfWtxwkV-ruOxLAQA9ZtX6hwnWahbWaHmxZ5WxSUoGlG0O_DOc_MEbiEFSTetMuL0ofFqtvaDZRhFue8Fm12YoPUdC8cimGBtbaJ0jYp3mVTaW-YT_NtLFf-apOVqvjGbxttlFhVuNdM_WUg"/>
+<div class="flex items-center justify-center h-6 w-6 rounded-full ring-2 ring-white dark:ring-slate-900 bg-slate-100 text-[10px] font-bold text-slate-600">+3</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<span class="absolute -left-[21px] top-1 h-2.5 w-2.5 rounded-full bg-slate-300 dark:bg-slate-600 ring-4 ring-white dark:ring-slate-900"></span>
+<div class="flex flex-col gap-1 opacity-75">
+<p class="text-xs font-semibold text-slate-500">02:00 PM - 02:30 PM</p>
+<h4 class="text-sm font-bold text-slate-900 dark:text-white">Client Sync: Project Beta</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400">Zoom Meeting</p>
+<button class="mt-2 text-xs bg-primary/10 text-primary px-3 py-1 rounded-full font-semibold w-fit hover:bg-primary/20 transition-colors">Join</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-1 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 flex flex-col h-full">
+<div class="px-6 py-5 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
+<h3 class="font-bold text-slate-900 dark:text-white">Recent Documents</h3>
+<button class="text-primary text-xs font-bold hover:underline">Browse All</button>
+</div>
+<div class="flex-1 p-2 overflow-y-auto">
+<div class="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group cursor-pointer">
+<div class="flex items-center justify-center shrink-0 size-10 rounded-lg bg-red-50 text-red-600 dark:bg-red-900/20 dark:text-red-400">
+<span class="material-symbols-outlined text-[24px]">picture_as_pdf</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-sm font-medium text-slate-900 dark:text-white truncate group-hover:text-primary transition-colors">Employee_Handbook_2024.pdf</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Accessed 2 hours ago • 2.4 MB</p>
+</div>
+<button class="text-slate-400 hover:text-primary p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</button>
+</div>
+<div class="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group cursor-pointer">
+<div class="flex items-center justify-center shrink-0 size-10 rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400">
+<span class="material-symbols-outlined text-[24px]">description</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-sm font-medium text-slate-900 dark:text-white truncate group-hover:text-primary transition-colors">Project_Alpha_Specs.docx</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Accessed yesterday • 850 KB</p>
+</div>
+<button class="text-slate-400 hover:text-primary p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</button>
+</div>
+<div class="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group cursor-pointer">
+<div class="flex items-center justify-center shrink-0 size-10 rounded-lg bg-green-50 text-green-600 dark:bg-green-900/20 dark:text-green-400">
+<span class="material-symbols-outlined text-[24px]">table_chart</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-sm font-medium text-slate-900 dark:text-white truncate group-hover:text-primary transition-colors">Q3_Financials_Final.xlsx</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Accessed 2 days ago • 1.2 MB</p>
+</div>
+<button class="text-slate-400 hover:text-primary p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</button>
+</div>
+<div class="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group cursor-pointer">
+<div class="flex items-center justify-center shrink-0 size-10 rounded-lg bg-purple-50 text-purple-600 dark:bg-purple-900/20 dark:text-purple-400">
+<span class="material-symbols-outlined text-[24px]">slideshow</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-sm font-medium text-slate-900 dark:text-white truncate group-hover:text-primary transition-colors">Q4_Marketing_Strategy.pptx</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Accessed 3 days ago • 15 MB</p>
+</div>
+<button class="text-slate-400 hover:text-primary p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="h-8"></div> 
+</main>
+</div>
+<script>
+/*
+    REAL USER ACTIVITY DETECTOR
+    Sends activity ONLY on meaningful interaction
+*/
+
+let lastX = null;
+let lastY = null;
+let lastSent = 0;
+
+const MOVE_THRESHOLD = 15;   // pixels required to count as movement
+const SEND_COOLDOWN = 2500;  // ms between heartbeats
+
+function sendActivity() {
+    const now = Date.now();
+
+    // prevent spam
+    if (now - lastSent < SEND_COOLDOWN) return;
+
+    lastSent = now;
+
+    fetch("/activity", {
+        method: "POST",
+        keepalive: true
+    }).catch(()=>{});
+}
+
+// Detect REAL mouse movement
+document.addEventListener("mousemove", (e) => {
+
+    if (lastX === null) {
+        lastX = e.clientX;
+        lastY = e.clientY;
+        return;
+    }
+
+    const dx = Math.abs(e.clientX - lastX);
+    const dy = Math.abs(e.clientY - lastY);
+
+    // Ignore tiny jitter movements
+    if (dx > MOVE_THRESHOLD || dy > MOVE_THRESHOLD) {
+        lastX = e.clientX;
+        lastY = e.clientY;
+        sendActivity();
+    }
+});
+
+// Other real interactions
+document.addEventListener("click", sendActivity);
+document.addEventListener("keydown", sendActivity);
+document.addEventListener("scroll", sendActivity);
+</script>
+
+</body></html>
