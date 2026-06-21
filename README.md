@@ -2,6 +2,10 @@
 
 A Flask-based Zero Trust Security simulation that continuously evaluates user trust based on behavioral patterns, session activity, resource access, and contextual risk factors. The system dynamically adjusts trust levels, classifies user risk, and enforces adaptive access control to demonstrate Zero Trust Architecture (ZTA) principles in an enterprise environment.
 
+## Live Demo
+
+🔗 https://zero-trust-security-model.onrender.com
+
 ---
 
 ## Features
