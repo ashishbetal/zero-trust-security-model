@@ -55,6 +55,24 @@ http://localhost:5000
 * Session Monitoring
 * Adaptive Access Control
 
+## Screenshots
+
+### Login Portal
+
+![Login Portal](screenshots/login.png)
+
+### User Dashboard
+
+![User Dashboard](screenshots/user-dashboard.png)
+
+### Admin Dashboard
+
+![Admin Dashboard](screenshots/admin-dashboard.png)
+
+### Security Operations Console
+
+![Trust Console](screenshots/trust-console.png)
+
 ## Author
 
 Ashish Betal
